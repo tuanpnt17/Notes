@@ -2,16 +2,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Notes.Views.NotePage"
-             Title="NotePage">
+             xmlns:viewModels="clr-namespace:Notes.ViewModels"
+             Title="NotePage"
+             >
+    <ContentPage.BindingContext>
+        <viewModels:NoteViewModel />
+    </ContentPage.BindingContext>
     <VerticalStackLayout Spacing="10" Margin="5">
         <Editor x:Name="TextEditor"
-                Placeholder="Enter yout note"
+                Placeholder="Enter your note"
                 Text="{Binding Text}"
                 HeightRequest="100"/>
 
         <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
-            <Button Text="Save" Clicked="SaveButton_Clicked" />
-            <Button Text="Delete" Grid.Column="1" Clicked="DeleteButton_Clicked" />
+            <Button Text="Save" Command="{Binding SaveCommand}" />
+            <Button Text="Delete" Grid.Column="1" Command="{Binding DeleteCommand}" />
         </Grid>
     </VerticalStackLayout>
 </ContentPage>

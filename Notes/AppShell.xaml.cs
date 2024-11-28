@@ -1,4 +1,5 @@
-﻿using Notes.Views;
+﻿using Microsoft.Maui.Controls;
+using Notes.Views;
 
 namespace Notes
 {
